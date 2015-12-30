@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="SGE.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="SGETargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SGE" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="SGEContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UsuarioSet" EntityType="SGE.Usuario" />
+          <EntitySet Name="MateriaSet" EntityType="SGE.Materia" />
+          <EntitySet Name="CarreraSet" EntityType="SGE.Carrera" />
+          <EntitySet Name="MateriasPorCarreraSet" EntityType="SGE.MateriasPorCarrera" />
+          <AssociationSet Name="MateriaMateriasPorCarrera" Association="SGE.MateriaMateriasPorCarrera">
+            <End Role="Materia" EntitySet="MateriaSet" />
+            <End Role="MateriasPorCarrera" EntitySet="MateriasPorCarreraSet" />
+          </AssociationSet>
+          <AssociationSet Name="CarreraMateriasPorCarrera" Association="SGE.CarreraMateriasPorCarrera">
+            <End Role="Carrera" EntitySet="CarreraSet" />
+            <End Role="MateriasPorCarrera" EntitySet="MateriasPorCarreraSet" />
+          </AssociationSet>
+          <EntitySet Name="CarrerasPorUsuarioSet" EntityType="SGE.CarrerasPorUsuario" />
+          <EntitySet Name="MateriasPorUsuarioSet" EntityType="SGE.MateriasPorUsuario" />
+          <AssociationSet Name="UsuarioMateriasPorUsuario" Association="SGE.UsuarioMateriasPorUsuario">
+            <End Role="Usuario" EntitySet="UsuarioSet" />
+            <End Role="MateriasPorUsuario" EntitySet="MateriasPorUsuarioSet" />
+          </AssociationSet>
+          <AssociationSet Name="MateriaMateriasPorUsuario" Association="SGE.MateriaMateriasPorUsuario">
+            <End Role="Materia" EntitySet="MateriaSet" />
+            <End Role="MateriasPorUsuario" EntitySet="MateriasPorUsuarioSet" />
+          </AssociationSet>
+          <AssociationSet Name="CarreraCarrerasPorUsuario" Association="SGE.CarreraCarrerasPorUsuario">
+            <End Role="Carrera" EntitySet="CarreraSet" />
+            <End Role="CarrerasPorUsuario" EntitySet="CarrerasPorUsuarioSet" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioCarrerasPorUsuario" Association="SGE.UsuarioCarrerasPorUsuario">
+            <End Role="Usuario" EntitySet="UsuarioSet" />
+            <End Role="CarrerasPorUsuario" EntitySet="CarrerasPorUsuarioSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="MateriasPorUsuario" Relationship="SGE.UsuarioMateriasPorUsuario" FromRole="Usuario" ToRole="MateriasPorUsuario" />
+          <NavigationProperty Name="CarrerasPorUsuario" Relationship="SGE.UsuarioCarrerasPorUsuario" FromRole="Usuario" ToRole="CarrerasPorUsuario" />
+          <Property Name="DNI" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Apellido" Type="String" Nullable="false" />
+          <Property Name="FechaUltimaActualizacion" Type="String" Nullable="false" />
+          <Property Name="Pass" Type="String" Nullable="false" />
+          <Property Name="EsFullUser" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="IdMateria" />
+          </Key>
+          <Property Name="IdMateria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="MateriasPorCarrera" Relationship="SGE.MateriaMateriasPorCarrera" FromRole="Materia" ToRole="MateriasPorCarrera" />
+          <NavigationProperty Name="MateriasPorUsuario" Relationship="SGE.MateriaMateriasPorUsuario" FromRole="Materia" ToRole="MateriasPorUsuario" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="EsConNota" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carrera">
+          <Key>
+            <PropertyRef Name="IdCarrera" />
+          </Key>
+          <Property Name="IdCarrera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="MateriasPorCarrera" Relationship="SGE.CarreraMateriasPorCarrera" FromRole="Carrera" ToRole="MateriasPorCarrera" />
+          <NavigationProperty Name="CarrerasPorUsuario" Relationship="SGE.CarreraCarrerasPorUsuario" FromRole="Carrera" ToRole="CarrerasPorUsuario" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MateriasPorCarrera">
+          <Key>
+            <PropertyRef Name="IdMateriaPorCarrera" />
+          </Key>
+          <Property Name="IdMateriaPorCarrera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Materia" Relationship="SGE.MateriaMateriasPorCarrera" FromRole="MateriasPorCarrera" ToRole="Materia" />
+          <NavigationProperty Name="Carrera" Relationship="SGE.CarreraMateriasPorCarrera" FromRole="MateriasPorCarrera" ToRole="Carrera" />
+          <Property Name="IdMateria" Type="String" Nullable="false" />
+          <Property Name="IdCarrera" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="MateriaMateriasPorCarrera">
+          <End Type="SGE.Materia" Role="Materia" Multiplicity="1" />
+          <End Type="SGE.MateriasPorCarrera" Role="MateriasPorCarrera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="IdMateria" />
+            </Principal>
+            <Dependent Role="MateriasPorCarrera">
+              <PropertyRef Name="IdMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CarreraMateriasPorCarrera">
+          <End Type="SGE.Carrera" Role="Carrera" Multiplicity="1" />
+          <End Type="SGE.MateriasPorCarrera" Role="MateriasPorCarrera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="IdCarrera" />
+            </Principal>
+            <Dependent Role="MateriasPorCarrera">
+              <PropertyRef Name="IdCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CarrerasPorUsuario">
+          <Key>
+            <PropertyRef Name="IdCarreraPorUsuario" />
+          </Key>
+          <Property Name="IdCarreraPorUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Usuario" Relationship="SGE.UsuarioCarrerasPorUsuario" FromRole="CarrerasPorUsuario" ToRole="Usuario" />
+          <NavigationProperty Name="Carrera" Relationship="SGE.CarreraCarrerasPorUsuario" FromRole="CarrerasPorUsuario" ToRole="Carrera" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdCarrera" Type="Int32" Nullable="false" />
+          <Property Name="Promedio" Type="Decimal" Nullable="false" />
+          <Property Name="PorcentajeCompletitud" Type="Decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MateriasPorUsuario">
+          <Key>
+            <PropertyRef Name="IdMateriaPorUsuario" />
+          </Key>
+          <Property Name="IdMateriaPorUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="String" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="SGE.UsuarioMateriasPorUsuario" FromRole="MateriasPorUsuario" ToRole="Usuario" />
+          <NavigationProperty Name="Materia" Relationship="SGE.MateriaMateriasPorUsuario" FromRole="MateriasPorUsuario" ToRole="Materia" />
+          <Property Name="IdMateria" Type="String" Nullable="false" />
+          <Property Name="EstaAprobada" Type="String" Nullable="false" />
+          <Property Name="Nota" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="UsuarioMateriasPorUsuario">
+          <End Type="SGE.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="SGE.MateriasPorUsuario" Role="MateriasPorUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="MateriasPorUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MateriaMateriasPorUsuario">
+          <End Type="SGE.Materia" Role="Materia" Multiplicity="1" />
+          <End Type="SGE.MateriasPorUsuario" Role="MateriasPorUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="IdMateria" />
+            </Principal>
+            <Dependent Role="MateriasPorUsuario">
+              <PropertyRef Name="IdMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CarreraCarrerasPorUsuario">
+          <End Type="SGE.Carrera" Role="Carrera" Multiplicity="1" />
+          <End Type="SGE.CarrerasPorUsuario" Role="CarrerasPorUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="IdCarrera" />
+            </Principal>
+            <Dependent Role="CarrerasPorUsuario">
+              <PropertyRef Name="IdCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioCarrerasPorUsuario">
+          <End Type="SGE.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="SGE.CarrerasPorUsuario" Role="CarrerasPorUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="CarrerasPorUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="SGE" />
+        <Alias Key="Target" Value="SGE.Store" />
+        <EntityContainerMapping CdmEntityContainer="SGEContainer" StorageEntityContainer="SGETargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

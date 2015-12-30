@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="422a8769b4734b1db8acf4478fca07dc" Name="Diagram1" ZoomLevel="57" >
+        <EntityTypeShape EntityType="SGE.Usuario" Width="2" PointX="14.125" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGE.Materia" Width="1.5" PointX="9.75" PointY="8" />
+        <EntityTypeShape EntityType="SGE.Carrera" Width="1.5" PointX="18.875" PointY="7.875" />
+        <EntityTypeShape EntityType="SGE.MateriasPorCarrera" Width="1.75" PointX="14.25" PointY="7.375" />
+        <AssociationConnector Association="SGE.MateriaMateriasPorCarrera" />
+        <AssociationConnector Association="SGE.CarreraMateriasPorCarrera" />
+        <EntityTypeShape EntityType="SGE.CarrerasPorUsuario" Width="1.875" PointX="16.875" PointY="4.75" />
+        <EntityTypeShape EntityType="SGE.MateriasPorUsuario" Width="1.75" PointX="11.125" PointY="4.75" />
+        <AssociationConnector Association="SGE.UsuarioMateriasPorUsuario" />
+        <AssociationConnector Association="SGE.MateriaMateriasPorUsuario" />
+        <AssociationConnector Association="SGE.CarreraCarrerasPorUsuario" />
+        <AssociationConnector Association="SGE.UsuarioCarrerasPorUsuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
