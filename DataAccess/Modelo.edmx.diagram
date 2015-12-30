@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="391535b1b99b4d5f9de1d80d10f25938" Name="Diagram1" ZoomLevel="111" >
+        <EntityTypeShape EntityType="Modelo.Usuario" Width="1.5" PointX="13.875" PointY="2.125" />
+        <EntityTypeShape EntityType="Modelo.Materia" Width="1.5" PointX="19.75" PointY="1.5" />
+        <EntityTypeShape EntityType="Modelo.Carrera" Width="1.5" PointX="14.25" PointY="7.5" />
+        <EntityTypeShape EntityType="Modelo.MateriasPorCarrera" Width="1.5" PointX="17.75" PointY="6.25" />
+        <EntityTypeShape EntityType="Modelo.CarrerasPorUsuario" Width="1.5" PointX="11.875" PointY="3.625" />
+        <EntityTypeShape EntityType="Modelo.MateriasPorUsuario" Width="1.5" PointX="16.75" PointY="2.5" />
+        <AssociationConnector Association="Modelo.UsuarioMateriasPorUsuario" />
+        <AssociationConnector Association="Modelo.UsuarioCarrerasPorUsuario" />
+        <AssociationConnector Association="Modelo.MateriaMateriasPorCarrera" />
+        <AssociationConnector Association="Modelo.MateriaMateriasPorUsuario" />
+        <AssociationConnector Association="Modelo.CarreraMateriasPorCarrera" />
+        <AssociationConnector Association="Modelo.CarreraCarrerasPorUsuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

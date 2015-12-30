@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{635E14FC-067E-438B-A3BF-10D88B910AE3}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataAccess</RootNamespace>
     <AssemblyName>DataAccess</AssemblyName>
@@ -31,22 +31,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="SGE.edmx">
+    <EntityDeploy Include="Modelo.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SGE.Designer.cs</LastGenOutput>
+      <LastGenOutput>Modelo.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="packages.config" />
-    <None Include="SGE.edmx.diagram">
-      <DependentUpon>SGE.edmx</DependentUpon>
+    <None Include="Modelo.edmx.diagram">
+      <DependentUpon>Modelo.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SGE.Designer.cs">
+    <Compile Include="Modelo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SGE.edmx</DependentUpon>
+      <DependentUpon>Modelo.edmx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
