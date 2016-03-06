@@ -53,9 +53,8 @@
           <Property Name="Email" Type="String" Nullable="false" />
           <Property Name="Nombre" Type="String" Nullable="false" />
           <Property Name="Apellido" Type="String" Nullable="false" />
-          <Property Name="FechaUltimaActualizacion" Type="String" Nullable="false" />
+          <Property Name="FechaUltimaActualizacion" Type="DateTime" Nullable="false" />
           <Property Name="Pass" Type="String" Nullable="false" />
-          <Property Name="EsFullUser" Type="String" Nullable="false" />
           <NavigationProperty Name="MateriasPorUsuario" Relationship="Modelo.UsuarioMateriasPorUsuario" FromRole="Usuario" ToRole="MateriasPorUsuario" />
           <NavigationProperty Name="CarrerasPorUsuario" Relationship="Modelo.UsuarioCarrerasPorUsuario" FromRole="Usuario" ToRole="CarrerasPorUsuario" />
         </EntityType>
