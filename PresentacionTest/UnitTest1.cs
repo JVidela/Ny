@@ -9,7 +9,7 @@ namespace PresentacionTest
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.IsFalse(false); // LALA
+            Assert.IsFalse(false);
         }
     }
 }
