@@ -4,19 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="391535b1b99b4d5f9de1d80d10f25938" Name="Diagram1" ZoomLevel="134" >
+      <Diagram DiagramId="391535b1b99b4d5f9de1d80d10f25938" Name="Diagram1" ZoomLevel="80" >
         <EntityTypeShape EntityType="Modelo.Usuario" Width="1.5" PointX="3.75" PointY="0.5" FillColor="Yellow" />
         <EntityTypeShape EntityType="Modelo.Materia" Width="1.5" PointX="7.25" PointY="3.875" FillColor="Lime" />
         <EntityTypeShape EntityType="Modelo.Carrera" Width="1.5" PointX="0.5" PointY="3.75" FillColor="Red" />
-        <EntityTypeShape EntityType="Modelo.MateriasPorCarrera" Width="1.5" PointX="3.75" PointY="3.75" FillColor="Black" />
-        <EntityTypeShape EntityType="Modelo.CarrerasPorUsuario" Width="1.5" PointX="0.5" PointY="0.5" FillColor="Orange" />
-        <EntityTypeShape EntityType="Modelo.MateriasPorUsuario" Width="1.5" PointX="7.25" PointY="0.5" FillColor="GreenYellow" />
+        <EntityTypeShape EntityType="Modelo.MateriasPorCarrera" Width="1.75" PointX="3.75" PointY="3.75" FillColor="Black" />
+        <EntityTypeShape EntityType="Modelo.CarrerasPorUsuario" Width="1.75" PointX="0.5" PointY="0.5" FillColor="Orange" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.MateriasPorUsuario" Width="1.75" PointX="7.25" PointY="0.5" FillColor="GreenYellow" />
         <AssociationConnector Association="Modelo.UsuarioMateriasPorUsuario" />
         <AssociationConnector Association="Modelo.UsuarioCarrerasPorUsuario" />
         <AssociationConnector Association="Modelo.MateriaMateriasPorCarrera" />
         <AssociationConnector Association="Modelo.MateriaMateriasPorUsuario" />
         <AssociationConnector Association="Modelo.CarreraMateriasPorCarrera" />
         <AssociationConnector Association="Modelo.CarreraCarrerasPorUsuario" />
+        <EntityTypeShape EntityType="Modelo.CorrelativaPorMateria" Width="2" PointX="3.625" PointY="6.75" />
+        <AssociationConnector Association="Modelo.MateriasPorCarreraCorrelativaPorMateria" />
+        <AssociationConnector Association="Modelo.IdMateriaDestino" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

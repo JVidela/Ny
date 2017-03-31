@@ -37,6 +37,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{635e14fc-067e-438b-a3bf-10d88b910ae3}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{2a17ae03-b154-430c-aaa2-09faf2f02b80}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArbolesDeCarrera\ArbolCarrera.cs" />
+    <Compile Include="ArbolesDeCarrera\NodoCarrera.cs" />
+    <Compile Include="ValidadorDeNuevosUsuarios\ConfiguracionPorUniversidad.cs" />
+    <Compile Include="ValidadorDeNuevosUsuarios\ValidadorDeNuevosUsuarios.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
