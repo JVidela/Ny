@@ -1,0 +1,9 @@
+language: csharp
+script:
+  - xbuild /p:Configuration=Debug SGE.sln
+before_install:
+  - sudo apt-get install nunit-console
+before_script:
+  - nuget restore SGE.sln
+after_script:
+  - nunit-console PresentacionTest/bin/Debug/PresentacionTest.dll
